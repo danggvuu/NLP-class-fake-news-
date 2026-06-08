@@ -131,7 +131,6 @@ with st.sidebar:
     st.markdown(lang["side_dataset_desc"])
     
     st.markdown("---")
-    st.markdown(lang["side_author_desc"])
 
 # --- MAIN APP ---
 st.title(lang["title"])
