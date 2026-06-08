@@ -1,0 +1,16 @@
+# Ignore the dataset (it is 234MB, GitHub limits file size to 100MB)
+fake_new.csv
+
+# Ignore pre-trained models (optional, uncomment if you don't want to push them)
+# best_model.pkl
+# vectorizer.pkl
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating system files
+.DS_Store
+Thumbs.db
