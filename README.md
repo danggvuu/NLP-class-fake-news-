@@ -23,6 +23,8 @@ We trained and evaluated two models on an 80/20 train/test split:
 
 ```bash
 ├── fake_new.py       # Main python script containing the training pipeline & demo test
+├── app.py            # Streamlit web application code
+├── requirements.txt  # Python package dependencies for web deployment
 ├── best_model.pkl    # Pre-trained Passive Aggressive model
 ├── vectorizer.pkl    # Pre-trained TF-IDF vectorizer (10,000 features)
 ├── .gitignore        # Ignores the heavy CSV dataset and OS cache files
@@ -39,7 +41,7 @@ We trained and evaluated two models on an 80/20 train/test split:
 Make sure you have python 3 installed. Install the required libraries:
 
 ```bash
-pip install numpy pandas scikit-learn tqdm
+pip install -r requirements.txt
 ```
 
 ### 2. Run the Pipeline
@@ -49,33 +51,27 @@ To run the full preprocessing, train both models, print evaluation reports, save
 python fake_new.py
 ```
 
-### 3. Usage & Inference
-The script automatically exports the model weights. You can load and use the model in any python script:
+### 3. Run the Web App Locally
+To launch the interactive Streamlit web application on your local machine, run:
 
-```python
-import pickle
-import re
-
-# Load assets
-with open("best_model.pkl", "rb") as f:
-    model = pickle.load(f)
-with open("vectorizer.pkl", "rb") as f:
-    vectorizer = pickle.load(f)
-
-# Cleaning function
-def clean_text(text):
-    text = text.lower()
-    text = re.sub(r'<.*?>', '', text)
-    text = re.sub(r'https?://\S+|www\.\S+', '', text)
-    text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
-    return re.sub(r'\s+', ' ', text).strip()
-
-# Inference
-text = "BREAKING: Secret documents reveal that aliens have taken over the government."
-cleaned = clean_text(text)
-vec = vectorizer.transform([cleaned])
-prediction = model.predict(vec)[0]
-
-label = "FAKE" if prediction == 1 else "REAL"
-print(f"Result: {label}")
+```bash
+streamlit run app.py
 ```
+
+---
+
+## 🌐 Cloud Deployment (Get a Free Public Link)
+
+You can deploy this application for free on **Streamlit Community Cloud** so anyone can use it via a browser link.
+
+### Step-by-Step Deployment:
+1. Push all your changes to GitHub (ensure `app.py`, `requirements.txt`, `best_model.pkl`, and `vectorizer.pkl` are committed).
+2. Go to [Streamlit Community Cloud](https://share.streamlit.io/) and log in using your GitHub account.
+3. Click **New app** (or **Deploy an app**).
+4. Fill in the deployment details:
+   - **Repository**: Choose `danggvuu/NLP-class-fake-news-` (or your repo name).
+   - **Branch**: `main`
+   - **Main file path**: `app.py`
+5. Click **Deploy!**
+
+Within 1-2 minutes, your web application will be live, and you will receive a public link (e.g., `https://your-app-name.streamlit.app/`) that you can add to your GitHub description or share with others!
