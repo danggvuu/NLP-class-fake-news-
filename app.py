@@ -74,8 +74,6 @@ t = {
         "side_acc": "**Độ chính xác kiểm thử:**\n95.84%",
         "side_dataset_title": "### 📚 Thông tin Tập dữ liệu",
         "side_dataset_desc": "Mô hình được huấn luyện trên tập **WELFake Dataset** (72,134 bài báo tiếng Anh) từ các nguồn Kaggle, McIntire, Reuters và BuzzFeed Political.",
-        "side_author_title": "### 👨‍💻 Phong cách Lập trình",
-        "side_author_desc": "Được xây dựng dựa trên lộ trình đào tạo Trí tuệ Nhân tạo thực chiến của **Việt Nguyễn AI**.",
         "suggest_header": "💡 Nhấp để điền nhanh bài viết mẫu thử nghiệm:",
         "suggest_fake": "📰 Tin giả: Người ngoài hành tinh",
         "suggest_real_fed": "📰 Tin thật: Lãi suất Mỹ",
